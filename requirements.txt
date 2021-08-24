@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+dependency_injector
+sqlalchemy
+mysqlclient

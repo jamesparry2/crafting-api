@@ -1,0 +1,1 @@
+INSERT INTO users (user_name, hashed_password) VALUES ("jamesparry2", "supersecret==")
