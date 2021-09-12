@@ -1,4 +1,3 @@
-import hashlib
 from contextlib import AbstractContextManager
 from typing import Callable
 from sqlalchemy.orm import Session
@@ -18,7 +17,7 @@ class User(Base):
     hashed_password = Column(String)
 
     def is_password_hashed_equivalent(self, inbound_password: str) -> bool:
-        return bcrypt.checkpw(inbound_password.encode(encode_type), self.hashed_password)
+        return bcrypt.checkpw(inbound_password.encode(encode_type), self.hashed_password.encode(encode_type))
     
     def set_password(self, password: str) -> None:
         self.hashed_password = bcrypt.hashpw(password.encode(encode_type), bcrypt.gensalt(10))

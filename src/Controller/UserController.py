@@ -14,3 +14,11 @@ def register_user(
     user_service: UserService = Depends(Provide[Container.user_service])
 ):
     return user_service.add_user(user_params)
+
+@router.post("/login")
+@inject
+def login_user(
+    user_params: UserRegisterRequest,
+    user_service: UserService = Depends(Provide[Container.user_service])
+):
+    return user_service.login_user(user_params)
