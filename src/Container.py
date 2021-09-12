@@ -2,7 +2,7 @@ import os
 
 from dependency_injector import containers, providers
 
-from src.Services import LoginService, UserService
+from src.Services import UserService
 from src.Repository import UserRespository, Database
 
 def get_database_url():
@@ -28,10 +28,4 @@ class Container(containers.DeclarativeContainer):
     user_service = providers.Factory(
         UserService.UserService,
         user_repository=user_repository
-    )
-
-    login_service = providers.Factory(
-        LoginService.LoginService,
-        user_service=user_service,
-        pwd=config.mysql_root_password
     )

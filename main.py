@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from src.Controller import LoginController
+from src.Controller import UserController
 
 from src.Container import Container
 
-routes = [LoginController]
+routes = [UserController]
 
 def create_app() -> FastAPI:
     container = Container()
